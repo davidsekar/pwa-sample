@@ -2,6 +2,7 @@ const helpers = require('./helpers');
 const WebpackInlineManifestPlugin = require('webpack-inline-manifest-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = function (options) {
   var metadata = {};
@@ -13,6 +14,12 @@ module.exports = function (options) {
     entry: './src/index.js',
     devServer: {
       contentBase: './docs'
+    },
+    module: {
+      rules: [{
+        test: /\.(png|jpg)$/,
+        use: ['url-loader']
+      }]
     },
     output: {
       filename: 'main.js',
@@ -30,7 +37,7 @@ module.exports = function (options) {
        */
       new HtmlWebpackPlugin({
         template: 'src/index.html',
-        title: 'PWA demo app',
+        title: 'PWA demo - Ideathon',
         chunksSortMode: function (a, b) {
           const entryPoints = ['inline', 'polyfills', 'sw-register', 'styles', 'vendor', 'main'];
           return entryPoints.indexOf(a.names[0]) - entryPoints.indexOf(b.names[0]);
@@ -60,6 +67,14 @@ module.exports = function (options) {
         defaultAttribute: 'async',
         preload: [/polyfills|vendor|main/],
         prefetch: [/chunk/]
+      }),
+      new WorkboxPlugin.GenerateSW({
+        // these options encourage the ServiceWorkers to get in there fast 
+        // and not allow any straggling "old" SWs to hang around
+        clientsClaim: true,
+        skipWaiting: true,
+        cleanupOutdatedCaches: true,
+        importWorkboxFrom: 'local'
       })
     ]
   };
