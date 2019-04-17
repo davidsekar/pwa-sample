@@ -1,4 +1,4 @@
 # pwa-sample
 A sample site developed to showcase Progressive Web Application (PWA) features.
 
-[View Demo](/pwa-sample/dist)
+[View Demo](https://davidsekar.github.io/pwa-sample/)

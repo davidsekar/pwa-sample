@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open",
-    "build": "rimraf dist && npm run webpack -- --config config/webpack.development.js --mode development --progress --profile --trace-deprecation",
-    "build:prod": "rimraf dist && npm run webpack -- --config config/webpack.production.js --progress --profile --bail",
+    "build": "rimraf docs && npm run webpack -- --config config/webpack.development.js --mode development --progress --profile --trace-deprecation",
+    "build:prod": "rimraf docs && npm run webpack -- --config config/webpack.production.js --progress --profile --bail",
     "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js"
   },
   "repository": {

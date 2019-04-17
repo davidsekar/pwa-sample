@@ -12,11 +12,11 @@ module.exports = function (options) {
   return {
     entry: './src/index.js',
     devServer: {
-      contentBase: './dist'
+      contentBase: './docs'
     },
     output: {
       filename: 'main.js',
-      path: helpers.root('dist'),
+      path: helpers.root('docs'),
       publicPath: '/'
     },
     plugins: [
