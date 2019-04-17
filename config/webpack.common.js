@@ -24,7 +24,7 @@ module.exports = function (options) {
     output: {
       filename: 'main.js',
       path: helpers.root('docs'),
-      publicPath: '/pwa-sample/'
+      publicPath: metadata.isDevServer ? '/' : '/pwa-sample/'
     },
     plugins: [
       /*
@@ -68,13 +68,9 @@ module.exports = function (options) {
         preload: [/polyfills|vendor|main/],
         prefetch: [/chunk/]
       }),
-      new WorkboxPlugin.GenerateSW({
-        // these options encourage the ServiceWorkers to get in there fast 
-        // and not allow any straggling "old" SWs to hang around
-        clientsClaim: true,
-        skipWaiting: true,
-        cleanupOutdatedCaches: true,
-        importWorkboxFrom: 'local'
+      new WorkboxPlugin.InjectManifest({
+        importWorkboxFrom: 'local',
+        swSrc: './src/sw.js'
       })
     ]
   };
