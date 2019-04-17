@@ -24,7 +24,7 @@ module.exports = function (options) {
     output: {
       filename: 'main.js',
       path: helpers.root('docs'),
-      publicPath: '/'
+      publicPath: '/pwa-sample/'
     },
     plugins: [
       /*
