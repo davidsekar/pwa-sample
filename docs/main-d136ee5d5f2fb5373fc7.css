@@ -146,6 +146,52 @@ a.pure-button-primary {
     color: #aaa;
 }
 
+.feature-grid-cell {
+    padding: 1em;
+    color: #fff;
+    text-shadow: 1px 1px #2d3e50;
+}
+
+.feature-grid-cell:hover {
+    cursor: pointer;
+}
+
+.feature-grid-cell .content-subhead {
+    color: #fff;
+}
+
+.feature-grid-cell:hover .content-subhead {
+    text-shadow: 1px 2px #2d3e50;
+}
+
+.feature-grid-cell-pad {
+    padding: 0.5em;
+}
+
+.feature-grid-fast {
+    background: #519251;
+}
+
+.feature-grid-reliable {
+    background: #2c4985;
+}
+
+.feature-grid-safe {
+    background: #000;
+}
+
+.feature-grid-engaging {
+    background: #1f8dd6;
+}
+
+.feature-grid-discover {
+    background-color: tomato;
+}
+
+.feature-grid-installable {
+    background-color: chocolate;
+}
+
 .sw-notification {
     position: absolute;
     width: 100%;
@@ -175,7 +221,7 @@ a.pure-button-primary {
     }
 
     .splash-container {
-        height: 88%;
+        height: 90%;
     }
 
     .content-wrapper {
@@ -192,6 +238,9 @@ a.pure-button-primary {
         border: none;
     }
 
+    .img-native-vs-pwa {
+        margin-top: 78px;
+    }
 }
 
 @media screen and (min-width: 64em) {

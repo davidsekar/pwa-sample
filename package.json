@@ -28,9 +28,11 @@
   },
   "homepage": "https://github.com/davidsekar/pwa-sample#readme",
   "dependencies": {
+    "@types/workbox-sw": "^4.2.0",
     "purecss": "^1.0.0"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "^5.0.2",
     "css-loader": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",
     "jquery": "^3.4.0",

@@ -3,6 +3,7 @@ const WebpackInlineManifestPlugin = require('webpack-inline-manifest-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = function (options) {
   var metadata = {};
@@ -71,7 +72,8 @@ module.exports = function (options) {
       new WorkboxPlugin.InjectManifest({
         importWorkboxFrom: 'local',
         swSrc: './src/sw.js'
-      })
+      }),
+      new CopyWebpackPlugin([{ from: 'src/static-img', to: 'img' }])
     ]
   };
 }

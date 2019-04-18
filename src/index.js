@@ -1,4 +1,5 @@
-import 'purecss';
+import 'purecss/build/pure.css';
+import 'purecss/build/grids-responsive.css';
 import './css/styles.css';
 
 import $ from 'jquery';
@@ -22,10 +23,13 @@ $(function () {
 
     function bindEvents() {
         $('#sw-notification-close').off().on('click', hideSwNotification);
-        $('#sw-notification-enable').on('click', enableServiceWorker);
+        $('#sw-notification-enable').on('click', function () {
+            alert('Ask for permission');
+        });
     }
 
-    function init(){
+    function init() {
+        enableServiceWorker();
         bindEvents();
     }
 
