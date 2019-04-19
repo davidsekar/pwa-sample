@@ -73,7 +73,13 @@ module.exports = function (options) {
         importWorkboxFrom: 'local',
         swSrc: './src/sw.js'
       }),
-      new CopyWebpackPlugin([{ from: 'src/static-img', to: 'img' }])
+      new CopyWebpackPlugin([{
+        from: 'src/static-img',
+        to: 'img'
+      }, {
+        from: 'src/manifest.json',
+        to: '[name].[ext]'
+      }])
     ]
   };
 }

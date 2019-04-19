@@ -8,8 +8,9 @@
   <title>PWA demo - Ideathon</title>
   <meta name="description" content="">
   
+  <link rel="manifest" href="/manifest.json">
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
-<link href="/pwa-sample/vendors~main-cca271b8d3fbecb32b00.css" rel="stylesheet"/><link href="/pwa-sample/main-5398167169a172c3db6e.css" rel="stylesheet"/><link rel="preload" href="/pwa-sample/1.main.js" as="script"/><link rel="preload" href="/pwa-sample/main.js" as="script"/></head>
+<link href="/pwa-sample/vendors~main-cca271b8d3fbecb32b00.css" rel="stylesheet"/><link href="/pwa-sample/main-0248c6c922c745d33792.css" rel="stylesheet"/><link rel="preload" href="/pwa-sample/1.main.js" as="script"/><link rel="preload" href="/pwa-sample/main.js" as="script"/></head>
 
 <body>
   <div class="header">
@@ -92,7 +93,7 @@
       </div>
     </div>
 
-    <div class="ribbon l-box-lrg pure-g">
+    <div class="ribbon l-box-lrg pure-g content">
       <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
         <img width="300" alt="Native Apps vs PWA" class="img-native-vs-pwa pure-img-responsive"
           src="img/native-apps-vs-pwa.jpg">
@@ -100,7 +101,7 @@
       <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
 
         <h2 class="content-head content-head-ribbon">Why PWA compared to Native Apps?</h2>
-        <ul>
+        <ul class="styled-list">
           <li>It supports reusability of code across different platforms i.e., Html, JavaScript and CSS</li>
           <li>Learn one language and apply everywhere i.e, JavaScript</li>
           <li>It is written in JavaScript - a well known language with largest ecosystem and community</li>
@@ -118,7 +119,7 @@
     </div>
 
     <div class="content">
-      <h2 class="content-head is-center">Feature 1: Cache site content for Offline access</h2>
+      <h2 class="content-head is-center">Feature 1: Cache content for Offline access</h2>
       <div class="pure-g">
         <div class="l-box-lrg pure-u-1">
           <p>
@@ -127,32 +128,54 @@
             cache/storage based on configured routes. Once cached, next time application can load instantly even
             work without network.
           </p>
-          <p>Typical storage quota for PWA is 50mb above which app might show warning & fail to save. If required, we
-            can
-            restrict Service Worker to a particular site path by linking it from that URL path.</p>
+          <p>Typical storage quota for PWA is 50MB, above which app might show warning depending on the browser. If
+            required, we can minimize storage usage by caching particular site paths or assets.</p>
+          <h3>Demo :</h3>
+          <p>This website caches all assets like html, scripts, css and external fonts using cache storage. So even when
+            network connection is weak or offline, site page loads instantly without showing offline page.</p>
         </div>
+        <img alt="PWA storage in chrome developer tool" class="pure-img-responsive"
+          src="img/pwa-cache-storage-chrome.jpg">
       </div>
     </div>
 
     <div class="content ribbon">
-      <h2 class="content-head is-center content-head-ribbon">Feature 2: Web push notifications for alerts</h2>
+      <h2 class="content-head is-center content-head-ribbon">Feature 2: Notification API for alerts</h2>
       <div class="pure-g">
         <div class="l-box-lrg pure-u-1">
-          Sometimes we allow users to generate heavy reports and alerts. These tasks usually take long duration to
-          complete, and during that period the users can be easily distracted & navigate away from the site. So, using
-          PWA – Service Worker, we can immediately notify the user using mobile push notification or desktop
-          notification even if he is on another site or tab or even another app.
+          <p>
+            Sometimes we allow users to generate heavy reports and alerts. These tasks usually take long duration to
+            complete, and during that period the users can be easily distracted & navigate away from the site. So, using
+            Notification API we can immediately notify the user using device notification system and provide him with a
+            clickable notification that brings him back to the report page.</p>
+          <p> Since this messages are shown using device notification system, we can reach the user even if he is on
+            another browser tab or even another application.
+          </p>
+          <p>For this API to work, we need user permission to access Notifications API and use it. Based on the feature
+            supported by the device from different vendor, we can send either a simple notification messages or rich
+            text
+            with images as content.</p>
+          <h3 class="content-head-ribbon">Demo :</h3>
+          <button type="button" id="initiate-notify-demo" class="pure-button">Initiate Demo</button>&nbsp;
+          <button type="button" id="notify-alert-demo" class="pure-button">Display an Alert</button>
         </div>
       </div>
     </div>
 
     <div class="content">
-      <h2 class="content-head is-center">Feature 3: Improve user engagement</h2>
+      <h2 class="content-head is-center">Feature 3: Improve user engagement using Push API</h2>
       <div class="pure-g">
         <div class="l-box-lrg pure-u-1">
-          When new articles/content are available on website, we can use Notification API to notify/promote it
-          through device notifications. This could help us to re-engage the interested user who may be using
-          other apps or sites at that moment.
+          When new article/news posts are available on website, we can directly send the message to the user device
+          using Push API to notify/promote it through device notifications. These messages can be received on the user
+          device, even when the browser is not open/running. </p>
+          <p>This proactive way of alerting user help to re-engage the interested user & bringing in traffic, who may be
+            busy with other works or may have forgotten to visit site lately.</p>
+          <h3 class="content-head-ribbon">Demo :</h3>
+          <button type="button" id="initiate-push-demo" class="pure-button">Initiate Demo (Check Notification permission)</button>&nbsp;
+          <button type="button" id="push-alert-demo" class="pure-button">Display a push message</button>
+          <br/>
+          <textarea name="push-channel-detail" id="push-channel-detail"></textarea>
         </div>
       </div>
     </div>

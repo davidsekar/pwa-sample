@@ -23,6 +23,8 @@ label {
 .pure-img-responsive {
     max-width: 100%;
     height: auto;
+    display: inline-block;
+    margin: 0 auto;
 }
 
 /*
@@ -33,12 +35,12 @@ label {
     padding: 1em;
 }
 
-.l-box-lrg {
-    padding: 2em;
-}
-
 .is-center {
     text-align: center;
+}
+
+.styled-list li {
+    margin-bottom:0.5em;
 }
 
 .home-menu {
@@ -266,11 +268,6 @@ label {
 
     .content-wrapper {
         top: 87%;
-    }
-
-    /* We remove the border-separator assigned to .l-box-lrg */
-    .l-box-lrg {
-        border: none;
     }
 
     .img-native-vs-pwa {
