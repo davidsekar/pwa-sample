@@ -60,7 +60,8 @@
               Engaging
             </h3>
             <p>
-              web push notifications, immersive full screen experience, control screen orientation, home screen icon etc.,
+              web push notifications, immersive full screen experience, control screen orientation, home screen icon
+              etc.,
             </p>
           </div>
         </div>
@@ -91,7 +92,8 @@
 
     <div class="ribbon l-box-lrg pure-g">
       <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
-        <img width="300" alt="Native Apps vs PWA" class="img-native-vs-pwa pure-img-responsive" src="img/native-apps-vs-pwa.jpg">
+        <img width="300" alt="Native Apps vs PWA" class="img-native-vs-pwa pure-img-responsive"
+          src="img/native-apps-vs-pwa.jpg">
       </div>
       <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
 
@@ -114,45 +116,54 @@
     </div>
 
     <div class="content">
-      <h2 class="content-head is-center">Dolore magna aliqua. Uis aute irure.</h2>
-
+      <h2 class="content-head is-center">Feature 1: Cache site content for Offline access</h2>
       <div class="pure-g">
-        <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
-          <form class="pure-form pure-form-stacked">
-            <fieldset>
-
-              <label for="name">Your Name</label>
-              <input id="name" type="text" placeholder="Your Name">
-
-
-              <label for="email">Your Email</label>
-              <input id="email" type="email" placeholder="Your Email">
-
-              <label for="password">Your Password</label>
-              <input id="password" type="password" placeholder="Your Password">
-
-              <button type="submit" class="pure-button">Sign Up</button>
-            </fieldset>
-          </form>
-        </div>
-
-        <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
-          <h4>Contact Us</h4>
+        <div class="l-box-lrg pure-u-1">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
+            Service worker script can be enabled for entire domain. If added to the site root, it gets activated on page
+            load and starts caching the site assets and request originating for entire domain in the user’s browser
+            cache/storage based on configured routes. Once cached, next time application can load instantly even
+            work without network.
           </p>
-
-          <h4>More Information</h4>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.
-          </p>
+          <p>Typical storage quota for PWA is 50mb above which app might show warning & fail to save. If required, we
+            can
+            restrict Service Worker to a particular site path by linking it from that URL path.</p>
         </div>
       </div>
+    </div>
 
+    <div class="content ribbon">
+      <h2 class="content-head is-center content-head-ribbon">Feature 2: Web push notifications for alerts</h2>
+      <div class="pure-g">
+        <div class="l-box-lrg pure-u-1">
+          Sometimes we allow users to generate heavy reports and alerts. These tasks usually take long duration to
+          complete, and during that period the users can be easily distracted & navigate away from the site. So, using
+          PWA – Service Worker, we can immediately notify the user using mobile push notification or desktop
+          notification even if he is on another site or tab or even another app.
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <h2 class="content-head is-center">Feature 3: Improve user engagement</h2>
+      <div class="pure-g">
+        <div class="l-box-lrg pure-u-1">
+          When new articles/content are available on website, we can use Notification API to notify/promote it
+          through device notifications. This could help us to re-engage the interested user who may be using
+          other apps or sites at that moment.
+        </div>
+      </div>
+    </div>
+    <div class="content ribbon">
+      <h2 class="content-head is-center content-head-ribbon">Feature 4: Perform CPU intensive operations using Service
+        Worker</h2>
+      <div class="pure-g">
+        <div class="l-box-lrg pure-u-1">
+          This allows heavy scripts to Off-load its work to Service Worker (non-UI thread). So
+          that, the app will still be responsive when calculation happens in parallel. Web frameworks like Angular 5+
+          utilizes Service Worker for enhancing user experience.
+        </div>
+      </div>
     </div>
     <div class="footer l-box is-center">
       This demo site is created to showcase various features of PWA by Team -- Technocrats
