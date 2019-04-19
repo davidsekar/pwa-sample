@@ -1,4 +1,4 @@
-importScripts("/pwa-sample/precache-manifest.83a707584551a74d30d436a9690ec9c1.js", "/pwa-sample/workbox-v4.3.0/workbox-sw.js");
+importScripts("/pwa-sample/precache-manifest.cda8133dc46ff0fa59c7d49f5880e5ac.js", "/pwa-sample/workbox-v4.3.0/workbox-sw.js");
 workbox.setConfig({modulePathPrefix: "/pwa-sample/workbox-v4.3.0"});
 // Precache Files with Webpack
 workbox.precaching.precacheAndRoute(self.__precacheManifest || []);
@@ -32,8 +32,12 @@ workbox.routing.registerRoute(
     }),
 );
 
-workbox.core.skipWaiting();
-workbox.core.clientsClaim();
+addEventListener('message', messageEvent => {
+    console.log('Debug :' + messageEvent.data);
+    if (messageEvent.data === 'skipWaiting') return skipWaiting();
+});
 
+// workbox.core.skipWaiting();
+// workbox.core.clientsClaim();
 // Clean Up Old Precaches when workbox has breaking changes during version changes
-workbox.precaching.cleanupOutdatedCaches();
+// workbox.precaching.cleanupOutdatedCaches();

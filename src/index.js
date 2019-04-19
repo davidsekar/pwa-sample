@@ -96,8 +96,8 @@ $(function () {
     function init() {
         try {
             enableServiceWorker();
-        } catch {
-
+        } catch (err) {
+            console.log(err);
         }
     }
 
