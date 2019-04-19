@@ -35,14 +35,32 @@ label {
 
 .l-box-lrg {
     padding: 2em;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .is-center {
     text-align: center;
 }
 
+.home-menu {
+    color: #fff;
+    border-top: 3px solid #313131;
+    line-height: 1.2;
+}
 
+.home-menu-bar {
+    background-color: #313131;
+    border: 1px solid #394041;
+    border-top: none;
+    border-radius: 0 0 55px 55px;
+    display: inline-block;
+    padding: 0.5em 2.5em;
+}
+
+.home-menu-bar small {
+    font-size: 75%;
+    font-style: italic;
+    text-transform: none;
+}
 
 /*
  * -- PURE FORM STYLES --
@@ -73,12 +91,32 @@ label {
     border-radius: 5px;
 }
 
-a.pure-button-primary {
-    background: white;
-    color: #1f8dd6;
-    border-radius: 5px;
-    font-size: 120%;
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
+
+.button-success {
+    background: rgb(28, 184, 65);
+}
+
+.button-error {
+    background: rgb(202, 60, 60);
+
+}
+
+.button-warning {
+    background: rgb(223, 117, 20);
+}
+
+.button-secondary {
+    background: rgb(66, 184, 221);
+}
+
 
 /*
  * -- SPLASH STYLES --
@@ -193,17 +231,19 @@ a.pure-button-primary {
 }
 
 .sw-notification {
-    position: absolute;
-    width: 100%;
-    background-color: #2d3e50;
-    bottom: 100%;
+    position: fixed;
+    right: 10%;
+    max-width: 90%;
+    background-color: #000;
+    color: #fff;
+    bottom: 0;
     padding: 0em 1em 1em;
+    z-index: 9999;
 }
 
 /* This is the class used for the footer */
 .footer {
     background: #111;
-    position: fixed;
     bottom: 0;
     width: 100%;
 }
@@ -228,11 +268,6 @@ a.pure-button-primary {
         top: 87%;
     }
 
-    .sw-notification {
-        width: 60%;
-        right: 0;
-    }
-
     /* We remove the border-separator assigned to .l-box-lrg */
     .l-box-lrg {
         border: none;
@@ -240,12 +275,5 @@ a.pure-button-primary {
 
     .img-native-vs-pwa {
         margin-top: 78px;
-    }
-}
-
-@media screen and (min-width: 64em) {
-    .sw-notification {
-        width: 35%;
-        right: 0;
     }
 }

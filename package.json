@@ -28,7 +28,6 @@
   },
   "homepage": "https://github.com/davidsekar/pwa-sample#readme",
   "dependencies": {
-    "@types/workbox-sw": "^4.2.0",
     "purecss": "^1.0.0"
   },
   "devDependencies": {

@@ -30,8 +30,12 @@ workbox.routing.registerRoute(
     }),
 );
 
-workbox.core.skipWaiting();
-workbox.core.clientsClaim();
+addEventListener('message', messageEvent => {
+    console.log('Debug :' + messageEvent.data);
+    if (messageEvent.data === 'skipWaiting') return skipWaiting();
+});
 
+// workbox.core.skipWaiting();
+// workbox.core.clientsClaim();
 // Clean Up Old Precaches when workbox has breaking changes during version changes
-workbox.precaching.cleanupOutdatedCaches();
+// workbox.precaching.cleanupOutdatedCaches();
