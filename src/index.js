@@ -140,15 +140,15 @@ var pushService = {};
 (function (p) {
     var base64VAPID = 'BK1OYgqZSmIBqwFvx4zGOOfkR7JnF300MIo3gdoK1F-pPgqgIbENRWmdthtqcsFdhnRRzhF1z5LSvH8J9KQ1puA';
     var urlBase64ToUint8Array = function (base64String) {
-        const padding = '='.repeat((4 - base64String.length % 4) % 4);
-        const base64 = (base64String + padding)
+        var padding = '='.repeat((4 - base64String.length % 4) % 4);
+        var base64 = (base64String + padding)
             .replace(/-/g, '+')
             .replace(/_/g, '/');
 
-        const rawData = window.atob(base64);
-        const outputArray = new Uint8Array(rawData.length);
+        var rawData = window.atob(base64);
+        var outputArray = new Uint8Array(rawData.length);
 
-        for (let i = 0; i < rawData.length; ++i) {
+        for (var i = 0; i < rawData.length; ++i) {
             outputArray[i] = rawData.charCodeAt(i);
         }
         return outputArray;

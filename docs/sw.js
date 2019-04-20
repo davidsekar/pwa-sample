@@ -1,4 +1,4 @@
-importScripts("/pwa-sample/precache-manifest.ca6bd1f10d164fd2c8e85db73d2746fb.js", "/pwa-sample/workbox-v4.3.0/workbox-sw.js");
+importScripts("/pwa-sample/precache-manifest.62ac001e58fd4f8bd0b440ac7277ed8b.js", "/pwa-sample/workbox-v4.3.0/workbox-sw.js");
 workbox.setConfig({modulePathPrefix: "/pwa-sample/workbox-v4.3.0"});
 // Precache Files with Webpack
 workbox.precaching.precacheAndRoute(self.__precacheManifest || []);
@@ -45,30 +45,35 @@ self.addEventListener('notificationclose', function (e) {
 
 self.addEventListener('notificationclick', function (event) {
     let url = event.notification.data.url + '?report=view';
-    event.notification.close(); // Android needs explicit close.
-    event.waitUntil(
-        clients.matchAll({
-            type: 'window'
-        }).then(windowClients => {
-            // Check if there is already a window/tab open with the target URL
-            for (var i = 0; i < windowClients.length; i++) {
-                var client = windowClients[i];
-                // If so, just focus it.
-                if (client.url === url && 'focus' in client) {
-                    return client.focus();
+    var action = event.action;
+    if (action === 'close') {
+        event.notification.close(); // Android needs explicit close.
+    } else {
+        event.waitUntil(
+            clients.matchAll({
+                type: 'window'
+            }).then(windowClients => {
+                // Check if there is already a window/tab open with the target URL
+                for (var i = 0; i < windowClients.length; i++) {
+                    var client = windowClients[i];
+                    // If so, just focus it.
+                    if (client.url === url && 'focus' in client) {
+                        return client.focus();
+                    }
                 }
-            }
-            // If not, then open the target URL in a new window/tab.
-            if (clients.openWindow) {
-                return clients.openWindow(url);
-            }
-        })
-    );
+                // If not, then open the target URL in a new window/tab.
+                if (clients.openWindow) {
+                    return clients.openWindow(url);
+                }
+            })
+        );
+        event.notification.close(); // Android needs explicit close.
+    }
 });
 
 self.addEventListener('push', function (e) {
     var options = {
-        body: 'This notification was generated from a push, which you have accepted to receive!',
+        body: 'Checkout our latest news on ABR!',
         icon: 'img/report-icon.png',
         vibrate: [100, 50, 100],
         data: {
@@ -77,7 +82,7 @@ self.addEventListener('push', function (e) {
         },
         actions: [{
                 action: 'explore',
-                title: 'Checkout our latest news on ABR',
+                title: 'Generated using Push API!',
                 icon: 'img/view.png'
             },
             {
