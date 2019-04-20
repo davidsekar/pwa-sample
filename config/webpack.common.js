@@ -7,10 +7,27 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = function (options) {
   var metadata = {};
+  metadata.publicPath = '/pwa-sample/';
+  var copyFiles = [{
+    from: 'src/static-img',
+    to: 'img'
+  }];
+
   if (options.env == 'dev') {
     metadata.isDevServer = true;
     metadata.HMR = true;
+    metadata.publicPath = '/';
+    copyFiles.push({
+      from: 'src/manifest.json',
+      to: '[name].[ext]'
+    });
+  } else {
+    copyFiles.push({
+      from: 'src/manifest-prod.json',
+      to: 'manifest.json'
+    });
   }
+
   return {
     entry: './src/index.js',
     devServer: {
@@ -25,7 +42,7 @@ module.exports = function (options) {
     output: {
       filename: 'main.js',
       path: helpers.root('docs'),
-      publicPath: metadata.isDevServer ? '/' : '/pwa-sample/'
+      publicPath: metadata.publicPath
     },
     plugins: [
       /*
@@ -43,10 +60,7 @@ module.exports = function (options) {
           const entryPoints = ['inline', 'polyfills', 'sw-register', 'styles', 'vendor', 'main'];
           return entryPoints.indexOf(a.names[0]) - entryPoints.indexOf(b.names[0]);
         },
-        metadata: {
-          isDevServer: metadata.isDevServer,
-          HMR: metadata.HMR
-        },
+        metadata: metadata,
         inject: 'body',
         xhtml: true,
         minify: false ? {
@@ -73,13 +87,7 @@ module.exports = function (options) {
         importWorkboxFrom: 'local',
         swSrc: './src/sw.js'
       }),
-      new CopyWebpackPlugin([{
-        from: 'src/static-img',
-        to: 'img'
-      }, {
-        from: 'src/manifest.json',
-        to: '[name].[ext]'
-      }])
+      new CopyWebpackPlugin(copyFiles)
     ]
   };
 }

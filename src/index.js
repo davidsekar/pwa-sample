@@ -138,6 +138,22 @@ var notifyService = {};
 var pushService = {};
 
 (function (p) {
+    var base64VAPID = 'BK1OYgqZSmIBqwFvx4zGOOfkR7JnF300MIo3gdoK1F-pPgqgIbENRWmdthtqcsFdhnRRzhF1z5LSvH8J9KQ1puA';
+    var urlBase64ToUint8Array = function (base64String) {
+        const padding = '='.repeat((4 - base64String.length % 4) % 4);
+        const base64 = (base64String + padding)
+            .replace(/-/g, '+')
+            .replace(/_/g, '/');
+
+        const rawData = window.atob(base64);
+        const outputArray = new Uint8Array(rawData.length);
+
+        for (let i = 0; i < rawData.length; ++i) {
+            outputArray[i] = rawData.charCodeAt(i);
+        }
+        return outputArray;
+    }
+
     p.init = function () {
         $('#initiate-push-demo').on('click', function () {
             messageBox.showMessage(pushService.requestNotificationPermission,
@@ -173,13 +189,14 @@ var pushService = {};
     }
 
     p.subscribeUser = function () {
+        var subscribeParam = {
+            userVisibleOnly: true,
+            applicationServerKey: urlBase64ToUint8Array(base64VAPID)
+        };
         navigator.serviceWorker.ready.then(function (reg) {
-            reg.pushManager.subscribe({
-                userVisibleOnly: true,
-                applicationServerKey: new Uint8Array('BEl62iUYgUivxIkv69yViEuiBIa-Ib9-SkvMeAtA3LFgDzkrxZJjSgSnfckjBJuBkr3qBUYIHBQFLXYp5Nksh8U')
-            }).then(function (sub) {
-                console.log('Endpoint URL: ', sub.endpoint);
-                $('#push-channel-detail').html(JSON.stringify(sub.endpoint));
+            reg.pushManager.subscribe(subscribeParam).then(function (sub) {
+                console.log('Endpoint URL: ', sub);
+                $('#push-channel-detail').html(JSON.stringify(sub));
             }).catch(function (e) {
                 if (Notification.permission === 'denied') {
                     console.warn('Permission for notifications was denied');

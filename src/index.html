@@ -11,7 +11,7 @@
   <!-- Webpack Dev Server reload -->
   <script src="/webpack-dev-server.js"></script>
   <% } %>
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="<%= htmlWebpackPlugin.options.metadata.publicPath %>manifest.json">
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
 </head>
 
@@ -175,9 +175,10 @@
           <p>This proactive way of alerting user help to re-engage the interested user & bringing in traffic, who may be
             busy with other works or may have forgotten to visit site lately.</p>
           <h3 class="content-head-ribbon">Demo :</h3>
-          <button type="button" id="initiate-push-demo" class="pure-button">Initiate Demo (Check Notification permission)</button>&nbsp;
+          <button type="button" id="initiate-push-demo" class="pure-button">Initiate Demo (Check Notification
+            permission)</button>&nbsp;
           <button type="button" id="push-alert-demo" class="pure-button">Display a push message</button>
-          <br/>
+          <br />
           <textarea name="push-channel-detail" id="push-channel-detail"></textarea>
         </div>
       </div>
