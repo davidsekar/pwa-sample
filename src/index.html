@@ -133,12 +133,19 @@
           </p>
           <p>Typical storage quota for PWA is 50MB, above which app might show warning depending on the browser. If
             required, we can minimize storage usage by caching particular site paths or assets.</p>
-          <h3>Demo :</h3>
+          <h3 class="content-head">Demo :</h3>
           <p>This website caches all assets like html, scripts, css and external fonts using cache storage. So even when
             network connection is weak or offline, site page loads instantly without showing offline page.</p>
+          <img alt="PWA storage in chrome developer tool" class="pure-img-responsive"
+            src="img/pwa-cache-storage-chrome.jpg">
+
+          <h3 class="content-head">Browser Support :</h3>
+          <p>
+            <a href="https://caniuse.com/#feat=serviceworkers" target="_blank"><i class="fa fa-link"
+                aria-hidden="true"></i>
+              90% of users are using modern browser that supports Service Workers</a>
+          </p>
         </div>
-        <img alt="PWA storage in chrome developer tool" class="pure-img-responsive"
-          src="img/pwa-cache-storage-chrome.jpg">
       </div>
     </div>
 
@@ -147,20 +154,32 @@
       <div class="pure-g">
         <div class="l-box-lrg pure-u-1">
           <p>
-            Sometimes we allow users to generate heavy reports and alerts. These tasks usually take long duration to
-            complete, and during that period the users can be easily distracted & navigate away from the site. So, using
-            Notification API we can immediately notify the user using device notification system and provide him with a
-            clickable notification that brings him back to the report page.</p>
-          <p> Since this messages are shown using device notification system, we can reach the user even if he is on
-            another browser tab or even another application.
+            In most of our application, we allow users to generate reports from huge amount of data, these tasks usually
+            take long duration to complete. During the wait time, the users usually gets distracted and navigate away
+            from the site. And currently, there is no other way for users to know whether their report is ready without
+            checking the site page frequently.
           </p>
-          <p>For this API to work, we need user permission to access Notifications API and use it. Based on the feature
-            supported by the device from different vendor, we can send either a simple notification messages or rich
-            text
-            with images as content.</p>
-          <h3 class="content-head-ribbon">Demo :</h3>
-          <button type="button" id="initiate-notify-demo" class="pure-button">Initiate Demo</button>&nbsp;
+          <p>Using Notification API, we can enhance the user experience by notifying the user using device notification
+            system when task is completed and provide him with a clickable notification that brings him back to the
+            actual report page. Since this messages are shown using notification system, we can reach the user even if
+            he is on another browser tab or even another application.
+          </p>
+          <h3 class="content-head content-head-ribbon">Demo :</h3>
+          <button type="button" id="initiate-notify-demo" class="pure-button">Get Notification permission</button>&nbsp;
           <button type="button" id="notify-alert-demo" class="pure-button">Display an Alert</button>
+
+          <h3 class="content-head content-head-ribbon">Few things to consider :</h3>
+          <ul class="styled-list">
+            <li>Notification API requires user permission to show notifications from our site. So, this cannot
+              completely replace the current in-page notifictaions.</li>
+            <li>Based on the device OS and browser, the level of richness in showing the notification may differ.
+              Notification display in Latest Operating System supports rich text with images.</li>
+          </ul>
+
+          <h3 class="content-head content-head-ribbon">Browser Support :</h3>
+          <a href="https://caniuse.com/#feat=notifications" target="_blank"><i class="fa fa-link"
+              aria-hidden="true"></i> 75% of users are using modern browser that
+            supports Notification API</a>
         </div>
       </div>
     </div>
@@ -174,23 +193,16 @@
           device, even when the browser is not open/running. </p>
           <p>This proactive way of alerting user help to re-engage the interested user & bringing in traffic, who may be
             busy with other works or may have forgotten to visit site lately.</p>
-          <h3 class="content-head-ribbon">Demo :</h3>
+          <h3 class="content-head">Demo :</h3>
           <button type="button" id="initiate-push-demo" class="pure-button">Initiate Demo (Check Notification
             permission)</button>&nbsp;
-          <button type="button" id="push-alert-demo" class="pure-button">Display a push message</button>
+          <button type="button" id="push-alert-demo" class="pure-button">Get Subscription info.</button>
           <br />
-          <textarea name="push-channel-detail" id="push-channel-detail"></textarea>
-        </div>
-      </div>
-    </div>
-    <div class="content ribbon">
-      <h2 class="content-head is-center content-head-ribbon">Feature 4: Perform CPU intensive operations using Service
-        Worker</h2>
-      <div class="pure-g">
-        <div class="l-box-lrg pure-u-1">
-          This allows heavy scripts to offload its work to Service Worker (non-UI thread). So
-          that, the app will still be responsive when calculation happens in parallel. Web frameworks like Angular 5+
-          utilizes Service Worker for enhancing user experience.
+          <h3 class="content-head">Subscription Information :</h3>
+          <textarea name="push-channel-detail" id="push-channel-detail" class="push-channel-detail"></textarea>
+          <p>The endpoint is generated by Firebase Cloud Messaging (FCM) a free push service by Google. To respect
+            respect user's privacy - Web Push Protocol allows to use FCM using VAPID, that doesn't require any account
+            with FCM service.</p>
         </div>
       </div>
     </div>

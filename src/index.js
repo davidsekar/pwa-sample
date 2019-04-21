@@ -94,7 +94,9 @@ var notifyService = {};
                 'Let us notify when the job completes!', 'Allow', 'Cancel');
         });
 
-        $('#notify-alert-demo').on('click', notifyService.displayNotification);
+        $('#notify-alert-demo').on('click', function () {
+            setTimeout(notifyService.displayNotification, 5000);
+        });
     }
 
     n.requestNotificationPermission = function (canAsk) {

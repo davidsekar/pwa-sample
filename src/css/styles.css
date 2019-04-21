@@ -23,7 +23,7 @@ label {
 .pure-img-responsive {
     max-width: 100%;
     height: auto;
-    display: inline-block;
+    display: block;
     margin: 0 auto;
 }
 
@@ -40,7 +40,7 @@ label {
 }
 
 .styled-list li {
-    margin-bottom:0.5em;
+    margin-bottom: 0.5em;
 }
 
 .home-menu {
@@ -180,10 +180,29 @@ label {
     margin-right: 7px;
 }
 
+.content a {
+    transition: color 0.3s;
+    text-decoration: none;
+    color: #aaa;
+}
+
+.content a:hover {
+    color: #2d3e50;
+}
+
 /* This is the class used for the dark-background areas. */
 .ribbon {
     background: #2d3e50;
     color: #aaa;
+}
+
+.ribbon a,
+.ribbon a:visited {
+    color: #aaa;
+}
+
+.ribbon a:hover {
+    color: #fff;
 }
 
 .feature-grid-cell {
@@ -230,6 +249,11 @@ label {
 
 .feature-grid-installable {
     background-color: chocolate;
+}
+
+.push-channel-detail {
+    max-width: 600px;
+    width: 100%;
 }
 
 .sw-notification {

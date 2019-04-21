@@ -1,4 +1,4 @@
-importScripts("/pwa-sample/precache-manifest.62ac001e58fd4f8bd0b440ac7277ed8b.js", "/pwa-sample/workbox-v4.3.0/workbox-sw.js");
+importScripts("/pwa-sample/precache-manifest.8b11c2c39ef9efa36ae226bb434bcc16.js", "/pwa-sample/workbox-v4.3.0/workbox-sw.js");
 workbox.setConfig({modulePathPrefix: "/pwa-sample/workbox-v4.3.0"});
 // Precache Files with Webpack
 workbox.precaching.precacheAndRoute(self.__precacheManifest || []);
