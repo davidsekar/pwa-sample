@@ -31,7 +31,8 @@ var messageBox = {};
 
         jqElem.html(messageTemplate);
 
-        jqElem.find('.sw-notification-enable').on('click', function () {
+        var enableJqButton = jqElem.find('.sw-notification-enable');
+        enableJqButton.on('click', function () {
             jqElem.hide();
             callback(true);
         });
@@ -43,6 +44,8 @@ var messageBox = {};
 
         $('body').append(jqElem);
         jqElem.show();
+
+        enableJqButton.focus();
     }
 }(messageBox));
 
