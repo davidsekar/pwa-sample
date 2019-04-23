@@ -4,12 +4,12 @@
   "lang": "en-US",
   "description": "A sample site developed to showcase Progressive Web Application (PWA) features.",
   "icons": [{
-      "src": "/img/pwa.png",
+      "src": "/pwa-sample/img/pwa.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/img/pwa-512.png",
+      "src": "/pwa-sample/img/pwa-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
