@@ -1,6 +1,7 @@
 import 'purecss/build/pure.css';
 import 'purecss/build/grids-responsive.css';
 import './css/styles.css';
+import 'file-loader?name=[name].[ext]!../src/offline.html';
 import $ from 'jquery';
 
 var messageBox = {};
