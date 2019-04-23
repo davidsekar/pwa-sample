@@ -11,6 +11,9 @@ module.exports = function (options) {
   var copyFiles = [{
     from: 'src/static-img',
     to: 'img'
+  },{
+    from: 'src/offline.html',
+    to: '[name].[ext]'
   }];
 
   if (options.env == 'dev') {
