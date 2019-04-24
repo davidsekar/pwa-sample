@@ -8,9 +8,28 @@ workbox.routing.registerRoute(
         cacheName: 'fontawesome-fonts-stylesheets',
         plugins: [
             new workbox.expiration.Plugin({
-                maxEntries: 20,
+                maxEntries: 30,
             }),
+            new workbox.cacheableResponse.Plugin({
+                statuses: [0, 200]
+            })
         ]
+    }),
+);
+
+// Cache the Google fonts.
+workbox.routing.registerRoute(
+    new RegExp('https://fonts.(?:googleapis|gstatic).com/(.*)'),
+    workbox.strategies.cacheFirst({
+        cacheName: 'google-fonts',
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxEntries: 30,
+            }),
+            new workbox.cacheableResponse.Plugin({
+                statuses: [0, 200]
+            })
+        ],
     }),
 );
 
@@ -24,7 +43,10 @@ workbox.routing.registerRoute(
                 // Only cache requests for a week
                 maxAgeSeconds: 7 * 24 * 60 * 60,
                 // Only cache 10 requests.
-                maxEntries: 10
+                maxEntries: 30
+            }),
+            new workbox.cacheableResponse.Plugin({
+                statuses: [0, 200]
             })
         ]
     }),

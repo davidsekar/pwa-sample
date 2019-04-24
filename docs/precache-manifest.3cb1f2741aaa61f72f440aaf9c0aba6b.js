@@ -4,14 +4,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pwa-sample/1.main.js"
   },
   {
-    "revision": "e80a5ab20ee96f1c4802dbf63f4e7dce",
+    "revision": "0cc5bdab32e985da4bd29803f3d341f5",
     "url": "/pwa-sample/index.html"
   },
   {
-    "url": "/pwa-sample/main-26ae9bfee70a984f5b1f.css"
+    "url": "/pwa-sample/main-51d9e41f7f2477789afa.css"
   },
   {
-    "revision": "1503a5298aee6890ab29",
+    "revision": "197497d99a4e3c36562f",
     "url": "/pwa-sample/main.js"
   },
   {

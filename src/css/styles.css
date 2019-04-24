@@ -4,10 +4,19 @@
     box-sizing: border-box;
 }
 
+html,
+button,
+input,
+select,
+textarea,
+.pure-g [class *="pure-u"] {
+    font-family: 'Open Sans', sans-serif;
+}
+
 body {
     line-height: 1.7em;
     color: #7f8c8d;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 h1,
@@ -56,6 +65,7 @@ label {
     border-radius: 0 0 55px 55px;
     display: inline-block;
     padding: 0.5em 2.5em;
+    font-family: 'Roboto', sans-serif;
 }
 
 .home-menu-bar small {
@@ -164,6 +174,7 @@ label {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin: 2em 0 1em;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* This is a modifier class used when the content-head is inside a ribbon */
@@ -283,11 +294,15 @@ label {
 
     /* We increase the body font size */
     body {
-        font-size: 16px;
+        font-size: 17px;
     }
 
     .splash-container {
         height: 90%;
+    }
+
+    .content {
+        padding: 1em 1.5em 3em;
     }
 
     .content-wrapper {

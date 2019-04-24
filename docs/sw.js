@@ -1,4 +1,4 @@
-importScripts("/pwa-sample/precache-manifest.a3116122bddafc76be4420566887f9ea.js", "/pwa-sample/workbox-v4.3.0/workbox-sw.js");
+importScripts("/pwa-sample/precache-manifest.3cb1f2741aaa61f72f440aaf9c0aba6b.js", "/pwa-sample/workbox-v4.3.0/workbox-sw.js");
 workbox.setConfig({modulePathPrefix: "/pwa-sample/workbox-v4.3.0"});
 // Precache Files with Webpack
 workbox.precaching.precacheAndRoute(self.__precacheManifest || []);
@@ -10,9 +10,28 @@ workbox.routing.registerRoute(
         cacheName: 'fontawesome-fonts-stylesheets',
         plugins: [
             new workbox.expiration.Plugin({
-                maxEntries: 20,
+                maxEntries: 30,
             }),
+            new workbox.cacheableResponse.Plugin({
+                statuses: [0, 200]
+            })
         ]
+    }),
+);
+
+// Cache the Google fonts.
+workbox.routing.registerRoute(
+    new RegExp('https://fonts.(?:googleapis|gstatic).com/(.*)'),
+    workbox.strategies.cacheFirst({
+        cacheName: 'google-fonts',
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxEntries: 30,
+            }),
+            new workbox.cacheableResponse.Plugin({
+                statuses: [0, 200]
+            })
+        ],
     }),
 );
 
@@ -26,7 +45,10 @@ workbox.routing.registerRoute(
                 // Only cache requests for a week
                 maxAgeSeconds: 7 * 24 * 60 * 60,
                 // Only cache 10 requests.
-                maxEntries: 10
+                maxEntries: 30
+            }),
+            new workbox.cacheableResponse.Plugin({
+                statuses: [0, 200]
             })
         ]
     }),
